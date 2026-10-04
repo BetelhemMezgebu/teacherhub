@@ -1,45 +1,64 @@
-import { NavLink } from "react-router-dom";
+
+import { NavLink, Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav>
-      <h2>TeacherHub Ethiopia 🇪🇹</h2>
+    <nav className="main-navbar">
+      <Link to="/" className="brand">
+        <div className="brand-icon">T</div>
 
-      <div>
+        <div className="brand-text">
+          <strong>TeacherHub</strong>
+          <span>Ethiopia 🇪🇹</span>
+        </div>
+      </Link>
+
+      <div className="nav-links">
         <NavLink
           to="/"
-          className={({ isActive }) => (isActive ? "active" : "")}
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
         >
           Home
-        </NavLink>{" "}
+        </NavLink>
 
         <NavLink
           to="/dashboard"
-          className={({ isActive }) => (isActive ? "active" : "")}
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
         >
           Dashboard
-        </NavLink>{" "}
+        </NavLink>
 
         <NavLink
           to="/money"
-          className={({ isActive }) => (isActive ? "active" : "")}
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
         >
           Money
-        </NavLink>{" "}
+        </NavLink>
 
         <NavLink
           to="/opportunities"
-          className={({ isActive }) => (isActive ? "active" : "")}
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
         >
           Opportunities
-        </NavLink>{" "}
-
-        <NavLink
-          to="/login"
-          className={({ isActive }) => (isActive ? "active" : "")}
-        >
-          Login
         </NavLink>
+      </div>
+
+      <div className="nav-actions">
+        <Link to="/login" className="login-link">
+          Login
+        </Link>
+
+        <Link to="/register" className="nav-register">
+          Get Started
+        </Link>
       </div>
     </nav>
   );
